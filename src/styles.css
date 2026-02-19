@@ -1,0 +1,324 @@
+:root{
+  --bg: #0b1220;
+  --card: #0f1a2e;
+  --card2:#101f38;
+  --text:#e8eefc;
+  --muted:#a9b6d6;
+  --line: rgba(255,255,255,.10);
+  --brand:#4f8cff;
+  --brand2:#22c55e;
+  --danger:#ef4444;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --radius: 16px;
+}
+
+*{ box-sizing:border-box; }
+html, body { height:100%; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background: radial-gradient(1200px 600px at 20% 0%, #1a2b53 0%, var(--bg) 55%);
+  color: var(--text);
+}
+
+a{ color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+
+.container{
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 16px;
+  padding-bottom: 92px; /* space for bottom nav on mobile */
+}
+
+.appbar{
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+  background: rgba(11,18,32,.65);
+  border-bottom: 1px solid var(--line);
+}
+
+.appbar-inner{
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+  letter-spacing:.2px;
+}
+.badge{
+  font-size:12px;
+  padding:4px 8px;
+  border:1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+}
+
+.navlinks{
+  display:flex;
+  gap: 12px;
+  align-items:center;
+}
+.navlinks a{
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: var(--muted);
+}
+.navlinks a.active{
+  background: rgba(79,140,255,.15);
+  color: var(--text);
+  border: 1px solid rgba(79,140,255,.35);
+}
+
+.userbox{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.userbox button{
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 12px;
+}
+
+.card{
+  background: linear-gradient(180deg, var(--card) 0%, var(--card2) 100%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px;
+}
+
+.h1{ font-size: 22px; margin: 4px 0 14px; }
+.h2{ font-size: 18px; margin: 0 0 10px; color: var(--text); }
+
+.grid{
+  display:grid;
+  gap: 12px;
+}
+
+.row{
+  display:flex;
+  gap: 10px;
+}
+.row > * { flex: 1; }
+
+label.small{
+  display:block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+input, select, textarea{
+  width:100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.05);
+  color: var(--text);
+  outline: none;
+}
+textarea{ resize: vertical; min-height: 90px; }
+
+input:focus, select:focus, textarea:focus{
+  border-color: rgba(79,140,255,.6);
+  box-shadow: 0 0 0 4px rgba(79,140,255,.15);
+}
+
+.btn{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(79,140,255,.4);
+  background: rgba(79,140,255,.18);
+  color: var(--text);
+  font-weight: 700;
+  cursor:pointer;
+}
+.btn:disabled{ opacity:.6; cursor:not-allowed; }
+.btn.primary{
+  border-color: rgba(34,197,94,.45);
+  background: rgba(34,197,94,.18);
+}
+.btn.danger{
+  border-color: rgba(239,68,68,.45);
+  background: rgba(239,68,68,.15);
+}
+
+.kpi{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255,255,255,.04);
+}
+
+.logoBox{
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  display:grid;
+  place-items:center;
+  background: rgba(255,255,255,.04);
+}
+
+.table{
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.tableHeader, .tableRow{
+  display:grid;
+  grid-template-columns: 1.1fr .8fr 1.4fr .8fr .7fr;
+  gap: 10px;
+  padding: 12px;
+  align-items:center;
+}
+.tableHeader{
+  background: rgba(255,255,255,.06);
+  font-weight: 800;
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.tableRow{
+  border-top: 1px solid var(--line);
+}
+.muted{ color: var(--muted); font-size: 12px; }
+
+.bottomNav{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(11,18,32,.75);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--line);
+  padding: 8px 10px;
+  z-index: 30;
+}
+.bottomNav-inner{
+  max-width: 920px;
+  margin: 0 auto;
+  display:flex;
+  justify-content: space-around;
+  gap: 8px;
+}
+.bottomNav a{
+  flex: 1;
+  text-align:center;
+  padding: 10px 8px;
+  border-radius: 14px;
+  color: var(--muted);
+  border: 1px solid transparent;
+}
+.bottomNav a.active{
+  color: var(--text);
+  border-color: rgba(79,140,255,.35);
+  background: rgba(79,140,255,.15);
+}
+
+/* Responsive tweaks */
+@media (min-width: 860px){
+  .container{ padding-bottom: 16px; }
+  .bottomNav{ display:none; }
+}
+/* ===== Fix dropdown visibility in dark mode ===== */
+
+select {
+  background: var(--card);
+  color: var(--text);
+}
+
+select option {
+  background: #0f1a2e;   /* dark background */
+  color: #e8eefc;        /* light text */
+}
+
+/* Some browsers */
+select:focus {
+  background: var(--card);
+  color: var(--text);
+}
+/* ============================= */
+/* Branded Dark Dropdown Styling */
+/* ============================= */
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background: linear-gradient(
+      180deg,
+      rgba(255,255,255,.06),
+      rgba(255,255,255,.02)
+    ),
+    var(--card);
+
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 42px 12px 12px; /* space for arrow */
+  cursor: pointer;
+
+  transition: all .2s ease;
+}
+
+/* Glow on focus */
+select:focus {
+  border-color: rgba(79,140,255,.6);
+  box-shadow: 0 0 0 4px rgba(79,140,255,.15);
+  outline: none;
+}
+
+/* Custom arrow */
+select {
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.06),
+      rgba(255,255,255,.02)
+    ),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' fill='%234f8cff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 7l5 5 5-5'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat, no-repeat;
+  background-position: right 12px center, right 12px center;
+  background-size: auto, 18px;
+}
+
+/* Option dropdown colors */
+select option {
+  background: #0f1a2e;
+  color: #e8eefc;
+}
+
+/* Disabled state */
+select:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
